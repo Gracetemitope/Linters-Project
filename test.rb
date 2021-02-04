@@ -6,5 +6,6 @@ class Player
     @symbol = symbol
     @options = options
   end
+
   puts 'Hello World'
 end

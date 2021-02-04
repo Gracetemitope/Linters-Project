@@ -84,6 +84,8 @@ class Linters
 
   private
 
+  # rubocop: disable Metrics/CyclomaticComplexity
+
   def indent_error(line, index, exp_val, msg)
     strip_line = line.strip.split(' ')
     emp = line.match(/^\s*\s*/)
@@ -94,6 +96,7 @@ class Linters
       error_def("line:#{index + 1} #{msg}")
     end
   end
+  # rubocop: enable Metrics/CyclomaticComplexity
 
   # empty_line def
   def check_class_empty_line_error(line, index)

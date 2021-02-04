@@ -82,9 +82,9 @@ class Linters
   end
   # rubocop: enable Metrics/CyclomaticComplexity
 
-    # rubocop: disable Metrics/CyclomaticComplexity
-
   private
+  
+  # rubocop: disable Metrics/CyclomaticComplexity
 
   def indent_error(line, index, exp_val, msg)
     strip_line = line.strip.split(' ')

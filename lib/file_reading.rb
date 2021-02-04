@@ -1,11 +1,13 @@
-class FileReading
+class ReadFile
+  attr_reader :lines, :file_path, :lines_count, :error
 
-  def self.read_file
-    File.open("./users.txt", "r") do |file|
-      puts file.read().include? "Grace"
+  def initialize(file_path)
+    @error = ''
+    @file_path = file_path
+    file = File.open(@file_path, 'r')
+    return unless file
 
-    # file_data = file.readlines.map(&:chomp)  
-    # file.close
-    end
+    @lines = File.readlines(@file_path)
+    @lines_count = @lines.length
   end
 end

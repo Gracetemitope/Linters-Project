@@ -129,6 +129,7 @@ class Linters
     error_def("line:#{index + 2} #{msg}") if @checker.lines[index + 1].strip.empty?
   end
 
+  # passing in error def
   def error_def(error_msg)
     @errors << error_msg
   end

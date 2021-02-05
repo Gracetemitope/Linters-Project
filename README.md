@@ -4,10 +4,10 @@
 
 # Project Description
 This a Ruby Linter Project. It flag the following errors in any ruby code:
-- Check Trailing white errors
-- Check empty line spaces
-- Check end of block
-- Check indentation
+- check Trailing white errors
+- check empty line spaces
+- check end of block
+- check indentation
 
 # Project Files
 - The 'bin' folder: This consist of the main.rb file.

@@ -11,20 +11,14 @@ class Linters
     @keywords = %w[begin case class def do if module unless]
   end
 
-  # Errors to Check:
-
-  # check double_quotes
   def check_double_quotes
     @checker.lines.each_with_index do |line, index|
       next unless line.include? '"'
 
-      @errors << "line:#{index + 1}:#{line.size - 1}:
-      Error: Prefer single-quoted strings when you don\'t need string
-      interpolation or special symbols"
+      @errors << "line:#{index + 1}:#{line.size - 1}: Error: Prefer single-quoted strings when you don\'t need string interpolation or special symbols"
     end
   end
 
-  # check_trailing_white_spaces
   def check_trailing_white_spaces
     @checker.lines.each_with_index do |line, index|
       if line[-2] == ' ' && !line.strip.empty?
@@ -34,7 +28,6 @@ class Linters
     end
   end
 
-  # check_end_of_block_error
   def check_end__of_block_error
     keyw_count = 0
     end_count = 0
@@ -44,11 +37,10 @@ class Linters
     end
 
     status = keyw_count <=> end_count
-    error_def("Lint/Syntax: Missing 'end'") if status.eql?(1)
+    error_def("Lint/Syntax: Expect token 'end'") if status.eql?(1)
     error_def("Lint/Syntax: Unexpected 'end'") if status.eql?(-1)
   end
 
-  # empty lines def
   def check_empty_line_error
     @checker.lines.each_with_index do |line, index|
       check_class_empty_line_error(line, index)
@@ -58,7 +50,6 @@ class Linters
     end
   end
 
-  # check_identation_error
   # rubocop: disable Metrics/CyclomaticComplexity
   def check_indentation_error
     msg = 'Inconsistent Identation: Use 2 spaces for indentation.'
@@ -83,8 +74,6 @@ class Linters
   # rubocop: enable Metrics/CyclomaticComplexity
 
   private
-  
-  # rubocop: disable Metrics/CyclomaticComplexity
 
   def indent_error(line, index, exp_val, msg)
     strip_line = line.strip.split(' ')
@@ -96,9 +85,7 @@ class Linters
       error_def("line:#{index + 1} #{msg}")
     end
   end
-  # rubocop: enable Metrics/CyclomaticComplexity
 
-  # empty_line def
   def check_class_empty_line_error(line, index)
     msg = 'Extra empty line detected at class body beginning'
     return unless line.strip.split(' ').first.eql?('class')
@@ -106,7 +93,6 @@ class Linters
     error_def("line:#{index + 2} #{msg}") if @checker.lines[index + 1].strip.empty?
   end
 
-  # def empty line
   def check_def_empty_line_error(line, index)
     msg1 = 'Extra empty line detected at method body beginning'
     msg2 = 'Use empty lines between method definition'
@@ -116,8 +102,6 @@ class Linters
     error_def("line:#{index + 2} #{msg1}") if @checker.lines[index + 1].strip.empty?
     error_def("line:#{index + 1} #{msg2}") if @checker.lines[index - 1].strip.split(' ').first.eql?('end')
   end
-
-  # def empty_line_error
 
   def check_end_empty_line_error(line, index)
     return unless line.strip.split(' ').first.eql?('end')
@@ -132,7 +116,6 @@ class Linters
     error_def("line:#{index + 2} #{msg}") if @checker.lines[index + 1].strip.empty?
   end
 
-  # passing in error def
   def error_def(error_msg)
     @errors << error_msg
   end

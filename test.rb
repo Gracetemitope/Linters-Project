@@ -1,11 +1,11 @@
 class Player
   attr_accessor :name, :symbol, :options
-
+       
   def initialize(name = '', symbol = '', options = [])
     @name = name
-    @symbol = symbol
+      @symbol = symbol
     @options = options
-  end
+  end  
 
-  puts 'Hello World'
-end
+  puts "Hello World"
+

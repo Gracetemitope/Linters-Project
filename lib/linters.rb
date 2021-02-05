@@ -77,6 +77,7 @@ class Linters
 
   private
 
+  # rubocop: disable Metrics/CyclomaticComplexity
   # rubocop:disable Metrics/PerceivedComplexity Metrics/CyclomaticComplexity
 
   def indent_error(line, index, exp_val, msg)
@@ -89,6 +90,8 @@ class Linters
       error_def("line:#{index + 1} #{msg}")
     end
   end
+    
+  # rubocop: enable Metrics/CyclomaticComplexity
 
   # rubocop:enable Metrics/PerceivedComplexity Metrics/CyclomaticComplexity
 

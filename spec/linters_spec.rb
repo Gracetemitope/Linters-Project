@@ -3,6 +3,8 @@ require_relative '../lib/linters'
 describe Linters do
   let(:checker) { Linters.new('test.rb') }
 
+  # rubocop:disable Layout/LineLength
+
   describe '#check_double_quotes' do
     it 'check double quotes error' do
       checker.check_double_quotes
@@ -14,7 +16,7 @@ describe Linters do
       expect(checker.errors[0]).to_not eql('line:10:25: Error: Prefer single-quoted strings when you don\'t need string interpolation or special symbols')
     end
   end
-
+  # rubocop:enable Layout/LineLength
   describe '#check_trailing_white_spaces' do
     it 'check trailing white spaces' do
       checker.check_trailing_white_spaces

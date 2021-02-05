@@ -11,6 +11,7 @@ class Linters
     @keywords = %w[begin case class def do if module unless]
   end
 
+  # rubocop:disable Layout/LineLength
   def check_double_quotes
     @checker.lines.each_with_index do |line, index|
       next unless line.include? '"'
@@ -19,6 +20,7 @@ class Linters
     end
   end
 
+  # rubocop:enable Layout/LineLength
   def check_trailing_white_spaces
     @checker.lines.each_with_index do |line, index|
       if line[-2] == ' ' && !line.strip.empty?
@@ -75,6 +77,8 @@ class Linters
 
   private
 
+  # rubocop:disable Metrics/PerceivedComplexity Metrics/CyclomaticComplexity
+
   def indent_error(line, index, exp_val, msg)
     strip_line = line.strip.split(' ')
     emp = line.match(/^\s*\s*/)
@@ -85,6 +89,8 @@ class Linters
       error_def("line:#{index + 1} #{msg}")
     end
   end
+
+  # rubocop:enable Metrics/PerceivedComplexity Metrics/CyclomaticComplexity
 
   def check_class_empty_line_error(line, index)
     msg = 'Extra empty line detected at class body beginning'

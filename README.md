@@ -31,7 +31,7 @@ linters.rb: This class checks for mistakes within the code. Different methods ar
 - Step 2: Specify the path to the file you want to check by changing the value of file_path in main.rb. Note:  The ruby file will run only if the path given is correct
 - Step 3: You have done step and step? Great! All you have to do now is to run this command bin/main.rb
 
-<img width="259" alt="linters" src="https://user-images.githubusercontent.com/58818795/106969031-ee429780-66fe-11eb-948c-904cd420e0ca.png">
+<img width="673" alt="Lint Errors" src="https://user-images.githubusercontent.com/58818795/106969337-82146380-66ff-11eb-9844-f679c7f81fac.png">
 
 ## How to Run the Tests
 - Install Rspec by typing  gem install rspec in your terminal.

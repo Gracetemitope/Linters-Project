@@ -31,10 +31,15 @@ linters.rb: This class checks for mistakes within the code. Different methods ar
 - Step 2: Specify the path to the file you want to check by changing the value of file_path in main.rb. Note:  The ruby file will run only if the path given is correct
 - Step 3: You have done step and step? Great! All you have to do now is to run this command bin/main.rb
 
+<img width="259" alt="linters" src="https://user-images.githubusercontent.com/58818795/106969031-ee429780-66fe-11eb-948c-904cd420e0ca.png">
+
 ## How to Run the Tests
+- Install Rspec by typing  gem install rspec in your terminal.
 - The Rspec unit tests reside in linters_spec.rb file in the spec folder.
 - To run the test cases, type rspec spec/linters_spec.rb in your terminal.
 - You want to play around with the test cases? Be my guest in the spec/linters_spec.rb file
+
+<img width="434" alt="rspec" src="https://user-images.githubusercontent.com/58818795/106968988-d9660400-66fe-11eb-893c-51498f95244d.png">
 
 👤 **Author**
 
